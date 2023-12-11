@@ -298,6 +298,10 @@ main_map_simple
 ggsave('./03_plots/albert_park_simple.png', dpi = 320, height = 20, width = 15, units = 'cm')
 
 # *4.3 main map simple animate----
+# take albert_park_simple.png file to WebPlotDigitizer and generate dots for the circuit
+# follow this blog on plotting and animating strava dat points
+# https://nrennie.rbind.io/blog/2022-07-18-mapping-a-marathon-with-rstrava/
+
 oz_circuit_map <- read.csv('./00_raw_data/oz_track_dots_map_nn.csv') %>% 
   arrange(order) %>% 
   rename(lng = x, lat = y)
@@ -369,15 +373,16 @@ coord_sf(xlim = c(144.9615, 144.979),
   geom_point(data = oz_circuit_map_sf,
              inherit.aes = FALSE,
              aes(x = lng, y = lat),
-             size = 8,
-             alpha = 0.5,
+             size = 1,
+             #alpha = 0.5,
              colour = 'deeppink') +
-  theme_void() +
+  #theme_void() +
   theme(plot.background = element_rect(fill = 'white'),
         #plot.caption = element_text(family = 'lato', hjust = 0.5, size = 12, color = "#694b37", margin = margin(t = -25)),
         plot.title = element_text(size = 20, family = "lato", face="bold", hjust=0.5, colour = "#694b37"), plot.subtitle = element_text(family = "lato", size = 16, colour = "#694b37", hjust=0.5),
         plot.margin = unit(c(0.1, 0.1, 0.1, 0.1), "cm"),
-        panel.border = element_rect(colour = "#694b37", fill=NA, size=1)) +
+        panel.border = element_rect(colour = "#694b37", fill=NA, size=1)) 
+#+
   enter_appear() +
   transition_states(order, transition_length = 1, state_length = 2)
 #geom_sf_label(data = coordinates_sf_turnberry, aes(label = place), nudge_x = 0.6, nudge_y = 0.35, family = 'ultra', colour = 'black', size = 6, label.size = 0.5) +
