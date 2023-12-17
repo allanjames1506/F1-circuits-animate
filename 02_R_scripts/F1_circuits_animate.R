@@ -49,6 +49,7 @@ anim_save("./04_gifs/first_saved_animation_anim_oz_circuit_animate.gif", oz_circ
 # https://joshuamccrain.com/tutorials/maps/streets_tutorial.html
 # https://wiki.openstreetmap.org/wiki/Map_features#Water_related
 # https://stackoverflow.com/questions/69803028/problem-with-plotting-a-polygon-with-ggplot-osmdata
+# https://rpubs.com/Linh-LTP/894196
 
 # *4.1 Map boundary----
 # get bounding box for Melbourne, Australia
